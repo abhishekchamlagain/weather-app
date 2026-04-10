@@ -1,16 +1,59 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React weather app built with Vite and Tailwind CSS. Users can search for any city and view live weather details from the OpenWeather API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search weather by city name
+- Shows temperature, condition, city, humidity, wind speed, and pressure
+- Displays a weather icon based on the current condition
+- Shows Kathmandu weather by default
+- Shows an error message when the city name is invalid
+- Responsive layout for desktop and mobile
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Tailwind CSS
+- OpenWeather API
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the app
+
+```bash
+npm run dev
+```
+
+### 3. Open in browser
+
+Vite will show a local URL such as:
+
+```bash
+http://localhost:5173/
+```
+
+## How It Works
+
+- Type a city name in the search box.
+- Click the Search button or press Enter.
+- The app fetches weather data from OpenWeather and updates the screen.
+
+## API Note
+
+The app uses an OpenWeather API key inside the code. If you want to use your own key, replace the key in `src/App.jsx`.
+
+## Screenshot
+
+Add a screenshot here later if you want to show the UI on GitHub.
+
+## License
+
+This project is for learning and practice.
