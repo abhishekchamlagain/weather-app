@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const apiKey = "8ffe25496204ea0caba7ff6eb4f048e5";
+  const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
   const [cityInput, setCityInput] = useState("Kathmandu");
   const [errorMsg, setErrorMsg] = useState("");
   const [weather, setWeather] = useState({
@@ -17,6 +17,10 @@ function App() {
 
   const getWeather = async () => {
     if (!cityInput.trim()) return;
+    if (!apiKey) {
+      setErrorMsg("Missing API key. Add VITE_OPENWEATHER_API_KEY in .env file.");
+      return;
+    }
 
     setErrorMsg("");
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${encodeURIComponent(cityInput.trim())}&appid=${apiKey}`;
@@ -48,6 +52,11 @@ function App() {
 
   useEffect(() => {
     const loadDefaultWeather = async () => {
+      if (!apiKey) {
+        setErrorMsg("Missing API key. Add VITE_OPENWEATHER_API_KEY in .env file.");
+        return;
+      }
+
       const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=Kathmandu&appid=${apiKey}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
@@ -70,7 +79,7 @@ function App() {
     };
 
     loadDefaultWeather();
-  }, []);
+  }, [apiKey]);
 
   return (
     <>
